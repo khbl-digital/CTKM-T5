@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -482,27 +481,33 @@
 
         @media (max-width: 768px) {
             /* 1. Typography & Header adjustments */
-            header { padding: 20px 15px; }
-            header h1 { font-size: 24px; }
-            header p { font-size: 14px; }
-            .section-title { font-size: 20px; margin-bottom: 20px; padding-left: 10px; }
+            header { padding: 20px 10px; }
+            header h1 { font-size: 22px; margin-bottom: 10px;}
+            header p { font-size: 13px; }
+            .section-title { font-size: 20px; margin-bottom: 20px; padding-left: 12px; }
             
             /* 2. Container & Spacing adjustments */
+            .container { padding: 0 10px; }
             .section-box { 
-                padding: 20px 15px; 
+                padding: 20px 12px; 
                 margin-bottom: 20px; 
                 border-radius: 12px;
             }
             
-            /* 3. Tabs Navigation - Grid layout for Mobile */
+            /* 3. Tabs Navigation - Side-by-side Layout on Mobile */
             .tabs-nav { 
                 margin: 20px 0; 
-                gap: 10px; 
+                gap: 8px; 
+                flex-wrap: nowrap; /* Force side-by-side */
             }
             .tab-btn { 
-                padding: 10px 15px; 
+                padding: 12px 5px; 
                 font-size: 13px; 
-                flex: 1 1 100%; /* Stack on very small screens */
+                flex: 1; /* Distribute equal width */
+                text-align: center;
+                line-height: 1.3;
+                white-space: normal; /* Allow text to wrap nicely */
+                border-width: 1px;
             }
             
             /* 4. Grids flattening */
@@ -514,33 +519,47 @@
             /* 5. Components adjustments */
             .saledeal-badge { font-size: 14px; padding: 4px 10px; }
             .coupon-box { padding: 15px; }
-            .coupon-val { font-size: 20px; }
+            .coupon-val { font-size: 22px; }
             .coupon-desc { font-size: 14px; min-height: auto; }
-            .info-grid { padding: 20px; }
+            .info-grid { padding: 15px; }
             
             /* 6. Table adjustments to prevent horizontal scrolling strain */
+            .table-responsive {
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                margin-top: 10px;
+            }
             .pnj-table th, .pnj-table td { 
-                padding: 10px; 
+                padding: 12px 10px; 
                 font-size: 13px; 
             }
             
             /* 7. Image constraints */
             .new-flow-step img, .usage-step img { max-height: 140px; }
+            .section-box > div > img[src*="1200x450"] {
+                min-height: 120px; /* Prevent main banner from becoming too thin */
+                object-fit: cover;
+            }
             
             /* 8. Web Engagement Inline Flex Override */
             #tab-webeng > .section-box > div[style*="display: flex"] {
-                flex-direction: column;
+                flex-direction: column !important;
                 gap: 15px !important;
             }
-            #tab-webeng > .section-box > div > div {
+            #tab-webeng > .section-box > div[style*="display: flex"] > div {
                 min-width: 100% !important;
                 width: 100%;
             }
+            
+            /* Miscellaneous spacing */
+            ul { padding-left: 15px; }
+            li { font-size: 13px; margin-bottom: 8px; }
+            p { font-size: 14px; }
         }
         
         @media (max-width: 480px) {
-            /* Extra tweaks for very narrow phones (iPhone SE, etc.) */
-            .pnj-table th, .pnj-table td { font-size: 12px; padding: 8px; }
+            /* Extra tweaks for very narrow phones */
+            .pnj-table th, .pnj-table td { font-size: 12px; padding: 8px 5px; }
             .section-title { font-size: 18px; }
             .new-flow-step .step-num { margin-bottom: 10px; padding: 3px 10px; }
         }
